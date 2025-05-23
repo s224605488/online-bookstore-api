@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/s224605488/online-bookstore-api.git'
+                git branch: 'main', url: 'https://github.com/s224605488/online-bookstore-api.git'
             }
         }
 
@@ -29,15 +29,6 @@ pipeline {
             steps {
                 sh './mvnw package'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build completed successfully!'
-        }
-        failure {
-            echo 'Build failed!'
         }
     }
 }
