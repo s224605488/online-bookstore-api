@@ -33,9 +33,7 @@ pipeline {
 
         stage('Code Quality') {
             steps {
-                withSonarQubeEnv('SonarQube') {
-                    bat '.\\mvnw.cmd sonar:sonar'
-                }
+                bat '.\\mvnw.cmd verify'
             }
         }
 
