@@ -1,15 +1,6 @@
 pipeline {
     agent any
 
-triggers {
-        GenericTrigger(
-            causeString: 'Triggered by GitHub Webhook',
-            token: 'bookstore-trigger',
-            printContributedVariables: true,
-            printPostContent: true
-        )
-    }
-
     tools {
         maven 'Maven 3.9.2'
         jdk 'Java 17'
