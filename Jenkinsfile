@@ -25,9 +25,27 @@ pipeline {
             }
         }
 
+        stage('Test Report') {
+            steps {
+                junit '**/target/surefire-reports/*.xml'
+            }
+        }
+
+        stage('Code Quality') {
+            steps {
+                bat '.\\mvnw.cmd verify'
+            }
+        }
+
         stage('Package') {
             steps {
                 bat '.\\mvnw.cmd package'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                bat 'echo Simulating Deployment...'
             }
         }
     }
